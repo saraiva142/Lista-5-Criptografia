@@ -1,4 +1,6 @@
 import streamlit as st
+from encrypt import encrypt
+from decrypt import decrypt
 
 st.set_page_config(
     page_title="S-DES João Saraiva",
@@ -7,22 +9,29 @@ st.set_page_config(
 
 st.write("# S-DES João Saraiva! :closed_lock_with_key:")
 
-st.sidebar.success("Select a demo above.")
+st.sidebar.success("Veja o código no [GitHub](https://github.com/saraiva142/Lista-5-Criptografia).")
 
 st.markdown(
     """
-    Streamlit is an open-source app framework built specifically for
-    Machine Learning and Data Science projects.
-    **👈 Select a demo from the sidebar** to see some examples
-    of what Streamlit can do!
-    ### Want to learn more?
-    - Check out [streamlit.io](https://streamlit.io)
-    - Jump into our [documentation](https://docs.streamlit.io)
-    - Ask a question in our [community
-        forums](https://discuss.streamlit.io)
-    ### See more complex demos
-    - Use a neural net to [analyze the Udacity Self-driving Car Image
-        Dataset](https://github.com/streamlit/demo-self-driving)
-    - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
+    - Esse projeto é uma implementação do algoritmo S-DES, que é um algoritmo de cifra de bloco de 8 bits. 
+    - O S-DES é uma versão simplificada do DES (Data Encryption Standard) e é usado principalmente para fins educacionais.
+    - O S-DES utiliza uma chave de 10 bits e realiza 2 rodadas de permutações e substituições para cifrar e decifrar os dados. O algoritmo é composto por várias etapas, incluindo permutações iniciais, expansões, substituições e permutações finais.
 """
 )
+
+with st.form(key="form"):
+    st.subheader("Insira os dados para cifrar ou decifrar:")
+    plaintext = st.text_input("Texto plano (8 bits):", "10101010")
+    key = st.text_input("Chave (10 bits):", "1010001010")
+    action = st.selectbox("Escolha a ação:", ["Cifrar", "Decifrar"])
+
+    submit = st.form_submit_button("Executar")
+    if submit:
+        if action == "Cifrar":
+            encrypted_text = encrypt(plaintext, key)  
+            st.success(f"Texto cifrado: {encrypted_text}")
+        else:
+            decrypted_text = decrypt(plaintext, key)  
+            st.success(f"Texto decifrado: {decrypted_text}")
+
+
