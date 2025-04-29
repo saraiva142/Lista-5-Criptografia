@@ -25,7 +25,7 @@ git clone https://github.com/saraiva142/Lista-5-Criptografia.git
 2. Acesse a pasta do projeto:
 
 ```bash
-cd seu-repositorio
+cd S-Des
 ```
 
 3. Instale as dependências necessárias:
