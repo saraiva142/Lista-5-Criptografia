@@ -1,3 +1,6 @@
+Pdf da lista 05 resolvida para download : [Lista5-pdf.pdf](https://github.com/user-attachments/files/20028347/Lista5-pdf.pdf)
+Para visualização, abrir no arquivo lista05 acima.
+
 # 🔐 Projeto S-DES (Simplified DES)
 
 Este repositório contém uma implementação completa do algoritmo **S-DES (Simplified Data Encryption Standard)**, desenvolvido como atividade prática da disciplina de **Criptografia**.
